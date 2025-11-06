@@ -1,12 +1,12 @@
-package com.mycompany.app;
+package main;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
 
-public class AppTest {
-    public AppTest() {
+public class MainTest {
+    public MainTest() {
     }
 
     @Test
