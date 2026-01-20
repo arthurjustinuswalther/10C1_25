@@ -1,6 +1,7 @@
 package czg.scene;
 
 import czg.MainWindow;
+import czg.game.Images;
 import czg.game.objects.BaseObject;
 
 import java.awt.*;
@@ -32,35 +33,56 @@ public class Scene {
      */
     public final List<BaseObject> objects = new ArrayList<>();
 
-    // TODO tolle sachen mit bit-masken
     /**
-     * Ob diese Szene vollständig ausgeblendet werden soll, wenn eine
-     * andere über ihr angezeigt wird, oder ob sie immer noch darunter
-     * sichtbar sein soll.
-     */
-    public boolean canBeCovered = false;
-
-    /**
-     * Ob diese Szene aktuell von einer anderen verdeckt ist.
-     * Sollte nicht von hand gesetzt werden.
+     * Ob die Szene verdeckt ist
      */
     public boolean isCovered = false;
+    /**
+     * Ob die Szene ausgeblendet werden sollte, wenn sie verdeckt ist
+     */
+    public boolean coverDisablesDrawing = false;
+    /**
+     * Ob die Szene noch ihren Code ausführen sollte, wenn sie verdeckt ist
+     */
+    public boolean coverPausesLogic = false;
+    /**
+     * Ob die Szene ihre Musik oder Effekte pausieren sollte, wenn sie verdeckt ist
+     */
+    public boolean coverPausesAudio = false;
 
+
+    /**
+     * Eine einfarbige Farbe als Hintergrund verwenden
+     * @param c Die Hintergrundfarbe
+     */
     public void setBackgroundColor(Color c) {
         useBackgroundColor = true;
         backgroundColor = c;
     }
 
+    /**
+     * Ein Hintergrundbild anstelle einer einzelnen Farbe verwenden
+     * @param i Das Bild
+     * @see Images#get(String)
+     */
     public void setBackgroundImage(Image i) {
         useBackgroundColor = false;
         backgroundImage = i;
     }
 
+    /**
+     * Ruft {@link BaseObject#update()} für jedes Objekt in der {@link #objects}-Liste auf
+     */
     public void update() {
-        if(! isCovered)
-            objects.forEach(BaseObject::update);
+        objects.forEach(BaseObject::update);
     }
 
+
+    /**
+     * Zeichnet den Hintergrund und alle Objekte der Szene
+     * @param g Grafik-Objekt. Wird vom Szenen-Stapel bereitgestellt.
+     * @see SceneStack#paintComponent(Graphics)
+     */
     public void draw(Graphics2D g) {
         // Hintergrund zeichnen:
         if(useBackgroundColor) {

@@ -34,7 +34,7 @@ public class SceneStack extends JPanel {
     public void push(Scene scene) {
         // Ggf. letzte Szene verdecken
         Scene last = getTop();
-        if(last != null && last.canBeCovered) {
+        if(last != null) {
             last.isCovered = true;
         }
 
@@ -61,21 +61,32 @@ public class SceneStack extends JPanel {
     }
 
     /**
-     * Logik-Code der einzelnen Szenen ausführen
+     * Logik-Code der einzelnen Szenen ausführen. Szenen die verdeckt sind
+     * {@link Scene#isCovered} und für die {@link Scene#coverPausesLogic}
+     * {@code true} ist, werden nicht beachtet.
      */
     public void update() {
-        scenes.forEach(Scene::update);
+        scenes.stream()
+                .filter(scene -> !(scene.isCovered && scene.coverPausesLogic))
+                .forEach(Scene::update);
     }
 
+    /**
+     * Zeichnet alle Szenen des Stapels. Die erste Szene in der Liste wird zuerst,
+     * die letzte zuletzt, also über allen anderen, gezeichnet.
+     * @param graphics Grafik-Objekt. Wird von Java bereitgestellt.
+     */
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
         Graphics2D g2 = (Graphics2D) graphics;
 
-        // Alle Szenen zeichnen
-        for(Scene scene : scenes)
-            scene.draw(g2);
+        // Alle Szenen zeichnen, die nicht verdeckt und so eingestellt sind,
+        // dass sie deshalb ausgeblendet sein sollte.
+        scenes.stream()
+                .filter(scene -> !(scene.isCovered && scene.coverDisablesDrawing))
+                .forEach(scene -> scene.draw(g2));
     }
 
     /**
