@@ -19,3 +19,5 @@
 - $\color{#d045f7}\text{🖿}$ [**wuyichen-jpg**/10C1_25](https://github.com/wuyichen-jpg/10C1_25)
 - $\color{#d045f7}\text{🖿}$ [**sophiepeca**/10C1_25](https://github.com/sophiepeca/10C1_25)
 - $\color{#d045f7}\text{🖿}$ [**AntoniaVoigt**/10C1_25](https://github.com/AntoniaVoigt/10C1_25)
+- $\color{#d045f7}\text{🖿}$ [**Jonas648**/10C1_25](https://github.com/Jonas648/10C1_25)
+- $\color{#d045f7}\text{🖿}$ [**KOEZIGSKOBR4**/10C1_25](https://github.com/KOEZIGSKOBR4/10C1_25)
