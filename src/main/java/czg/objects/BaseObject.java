@@ -76,8 +76,8 @@ public abstract class BaseObject {
      * @return Ob das Objekt angeklickt wurde
      */
     protected boolean isClicked() {
-        return MainWindow.getInstance().getMousePosition() != null
-                && getHitbox().contains(MainWindow.getInstance().getMousePosition())
+        return MainWindow.INSTANCE.getMousePosition() != null
+                && getHitbox().contains(MainWindow.INSTANCE.getMousePosition())
                 && Input.INSTANCE.getMouseState(MouseEvent.BUTTON1) == Input.KeyState.PRESSED;
     }
 

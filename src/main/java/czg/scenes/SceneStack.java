@@ -1,7 +1,5 @@
 package czg.scenes;
 
-import czg.MainWindow;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -18,17 +16,14 @@ import java.util.List;
 public class SceneStack extends JPanel {
 
     /**
+     * Die einzige Instanz des Szenen-Stapels
+     */
+    public static final SceneStack INSTANCE = new SceneStack();
+
+    /**
      * Eigene Liste mit Szenen weil contentPane.getComponents()
      */
     private final List<BaseScene> scenes = new ArrayList<>();
-
-    /**
-     * Einen neuen Szenen-Stapel erstellen.
-     */
-    public SceneStack() {
-        // Gesamten Raum ausfüllen
-        setBounds(0,0, MainWindow.WIDTH,MainWindow.HEIGHT);
-    }
 
     /**
      * Zeigt eine weitere Szene über allen bestehenden Szenen an
@@ -103,6 +98,30 @@ public class SceneStack extends JPanel {
         }
 
         System.err.printf("Es wurde versucht, %s im Szenen-Stapel zu ersetzten, obwohl diese Szene nicht darin vorkommt%n", toBeReplaced);
+    }
+
+    /**
+     * Findet die erste Szene {@code s} im Stapel, für die {@code s == toBeRemoved} gilt,
+     * und entfernt diese. Ggf. wird {@link BaseScene#isCovered} der darunterliegenden Szene
+     * auf {@code false} gesetzt.
+     * @param toBeRemoved Die zu entfernende Szene
+     */
+    public void remove(BaseScene toBeRemoved) {
+        for(int i = 0; i < scenes.size(); i++) {
+            if(scenes.get(i) == toBeRemoved) {
+                if(i == scenes.size()-1) {
+                    // Ggf. die darunterliegende Szene nicht mehr verdecken
+                    pop();
+                } else {
+                    // Entfernen
+                    scenes.remove(i);
+                }
+
+                return;
+            }
+        }
+
+        System.err.printf("Es wurde versucht, %s aus dem Szenen-Stapel zu entfernen, obwohl diese Szene nicht darin vorkommt%n", toBeRemoved);
     }
 
     /**

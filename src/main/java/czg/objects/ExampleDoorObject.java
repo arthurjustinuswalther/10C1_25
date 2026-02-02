@@ -1,7 +1,7 @@
 package czg.objects;
 
-import czg.MainWindow;
 import czg.scenes.BaseScene;
+import czg.scenes.SceneStack;
 import czg.util.Images;
 
 import java.util.function.Supplier;
@@ -27,7 +27,7 @@ public class ExampleDoorObject extends BaseObject {
             newScene.objects.add(ExamplePlayerObject.INSTANCE);
 
             // Spielfigur hat die Tür berührt: neue Szene Laden
-            MainWindow.getInstance().SCENE_STACK.replace(scene, newScene);
+            SceneStack.INSTANCE.replace(scene, newScene);
         }
     }
 

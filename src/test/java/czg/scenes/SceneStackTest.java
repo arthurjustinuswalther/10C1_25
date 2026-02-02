@@ -6,12 +6,14 @@ import static org.junit.Assert.*;
 
 public class SceneStackTest {
 
+    private static class Scene extends BaseScene {}
+
     @Test
     public void testStack() {
         final int[] x = {0};
         SceneStack stack = new SceneStack();
 
-        BaseScene bottom = new BaseScene();
+        BaseScene bottom = new Scene();
 
         BaseScene middle = new BaseScene() {
             @Override
@@ -22,7 +24,7 @@ public class SceneStackTest {
         };
         middle.coverPausesLogic = true;
 
-        BaseScene top = new BaseScene();
+        BaseScene top = new Scene();
 
         // Nur zwei Szenen
         stack.push(bottom);

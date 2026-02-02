@@ -30,19 +30,8 @@ public class MainWindow extends JFrame implements Runnable {
      */
     public static final int FPS = 30;
 
-    private static MainWindow INSTANCE = null;
+    public static final MainWindow INSTANCE = new MainWindow();
 
-    /**
-     * Die Instanz des Szenen-Stapels
-     */
-    public final SceneStack SCENE_STACK;
-
-    /**
-     * @return Die Instanz des Fensters zugreifen
-     */
-    public static MainWindow getInstance() {
-        return INSTANCE;
-    }
 
     private MainWindow() {
         super("CZGame");
@@ -55,8 +44,8 @@ public class MainWindow extends JFrame implements Runnable {
         setLayout(null);
 
         // Szenen-Stapel hinzufügen
-        SCENE_STACK = new SceneStack();
-        setContentPane(SCENE_STACK);
+        setContentPane(SceneStack.INSTANCE);
+        SceneStack.INSTANCE.setBounds(0,0, WIDTH, HEIGHT);
 
         // Tastatur- und Maus-Eingaben empfangen
         addKeyListener(Input.INSTANCE);
@@ -64,20 +53,17 @@ public class MainWindow extends JFrame implements Runnable {
 
         // Gesamtes Programm wird beendet, wenn das Fenster geschlossen wird
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // In die Mitte des Bildschirms platzieren
-        setLocationRelativeTo(null);
-
-        // Zeigen
-        setVisible(true);
     }
 
     public static void main(String[] args) {
         // OpenGL-Grafikschnittstelle und damit (hoffentlich) die Grafikkarte verwenden
         System.setProperty("sun.java2d.opengl","true");
 
-        // Fenster erstellen
-        INSTANCE = new MainWindow();
+        // Fenster zeigen
+        // In die Mitte des Bildschirms platzieren
+        INSTANCE.setLocationRelativeTo(null);
+        // Zeigen
+        INSTANCE.setVisible(true);
 
         // Haupt-Schleife in einem neuen Thread starten
         new Thread(INSTANCE).start();
@@ -85,7 +71,7 @@ public class MainWindow extends JFrame implements Runnable {
         // BEISPIEL-SZENE (nur zur Referenz, später entfernen!)
         ExampleScene1 s1 = new ExampleScene1();
         s1.objects.add(ExamplePlayerObject.INSTANCE);
-        INSTANCE.SCENE_STACK.push(s1);
+        SceneStack.INSTANCE.push(s1);
     }
 
     /**
@@ -120,12 +106,12 @@ public class MainWindow extends JFrame implements Runnable {
             // Alle nötigen Durchläufe abarbeiten
             while(delta >= 1) {
                 // Code für Szenen und Objekte ausführen
-                SCENE_STACK.update();
+                SceneStack.INSTANCE.update();
                 // Zuvor nur als KeyState.PRESSED eingetragene Tasten
                 // jetzt als KeyState.HELD behandeln
                 Input.INSTANCE.updatePressedToHeld();
                 // Grafik
-                SCENE_STACK.repaint();
+                SceneStack.INSTANCE.repaint();
 
                 // Durchlauf abgeschlossen, Zähler kann um 1 verringert werden
                 delta--;
