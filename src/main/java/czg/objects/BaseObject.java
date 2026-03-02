@@ -48,8 +48,8 @@ public class BaseObject {
      */
     public BaseObject(Image sprite, int x, int y) {
         this(sprite, x, y,
-                sprite.getWidth(null) * PIXEL_SCALE,
-                sprite.getHeight(null) * PIXEL_SCALE);
+                sprite != null ? sprite.getWidth(null) * PIXEL_SCALE : 0,
+                sprite != null ? sprite.getHeight(null) * PIXEL_SCALE : 0);
     }
 
     /**
@@ -97,10 +97,7 @@ public class BaseObject {
      * @param g Grafik-Objekt. Von der Szene bereitgestellt.
      */
     public void draw(Graphics2D g) {
-        // Überspringen, wenn kein Sprite gesetzt ist
-        if(sprite == null)
-            return;
-
+        // drawImage tut nichts, wenn sprite == null
         g.drawImage(
                 sprite,
                 x, y,
