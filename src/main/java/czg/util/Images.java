@@ -2,6 +2,9 @@ package czg.util;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -69,6 +72,41 @@ public class Images {
             }
         });
 
+    }
+
+    /**
+     * Dreht ein Bild.
+     * @param source Originalbild
+     * @param degrees Drehung in Grad
+     * @return Ein neues, gedrehtes Bild
+     */
+    public static Image rotateImage(Image source, double degrees) {
+        BufferedImage bSource = (BufferedImage) source;
+
+        // Transformations-Objekt erstellen
+        AffineTransform rotate = AffineTransform.getRotateInstance(
+                Math.toRadians(degrees),
+                Math.ceil(source.getWidth(null) / 2d),
+                Math.ceil(source.getHeight(null) / 2d)
+        );
+
+        // Neue Bounds ermitteln
+        Rectangle2D bounds = new AffineTransformOp(rotate, AffineTransformOp.TYPE_NEAREST_NEIGHBOR).getBounds2D(bSource);
+
+        // Neues Bild erstellen
+        BufferedImage result = new BufferedImage((int) Math.ceil(bounds.getWidth()), (int) Math.ceil(bounds.getHeight()), BufferedImage.TYPE_INT_ARGB);
+
+        // Grafik-Objekt für das Bild erhalten
+        Graphics2D g = (Graphics2D) result.getGraphics();
+
+        // Gesamte Grafik verschieben
+        g.translate(-bounds.getX(), -bounds.getY());
+        // Gedrehtes Bild zeichnen
+        g.drawImage(source, rotate, null);
+        // Grafik-Objekt löschen
+        g.dispose();
+
+        return result;
     }
 
 
