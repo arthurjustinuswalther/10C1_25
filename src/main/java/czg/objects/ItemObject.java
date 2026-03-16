@@ -4,6 +4,7 @@
  */
 package czg.objects;
 
+import czg.MainWindow;
 import czg.util.Images;
 
 import java.awt.*;
@@ -50,8 +51,14 @@ public enum ItemObject{
     
     ItemObject(String name, String imagePath, int level) {
         this.NAME = name;
-        this.SPRITE = Images.get(imagePath);
         this.LEVEL = level;
+        
+        Image sprite = Images.get(imagePath);
+        this.SPRITE = sprite.getScaledInstance(
+                sprite.getWidth(null)*MainWindow.PIXEL_SCALE,
+                sprite.getHeight(null)*MainWindow.PIXEL_SCALE,
+                Image.SCALE_REPLICATE
+        );
     }
 
     /**
