@@ -23,7 +23,7 @@ import static czg.MainWindow.PIXEL_SCALE;
 public class PlayerObject extends BaseObject{
 
     //Anlegen einer Reihung "Inventar", in welchem die Items, auf die der Spieler zugreifen kann, gespeichert werden
-    public List<ItemObject> inventar = new ArrayList<>(List.of(ItemObject.ATOM, ItemObject.BRENNER));
+    public List<ItemObject> inventar = new ArrayList<>();
 
     // Standardfarben
     public static final SaveFile defaultColors = new SaveFile(

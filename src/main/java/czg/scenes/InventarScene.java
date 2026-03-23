@@ -1,54 +1,87 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package czg.scenes;
 
+import czg.objects.BaseObject;
 import czg.objects.ButtonObject;
 import czg.objects.ItemObject;
 import czg.objects.PlayerObject;
+import czg.util.Draw;
 import czg.util.Images;
 
 import java.awt.*;
 
-import static czg.MainWindow.HEIGHT;
-import static czg.MainWindow.WIDTH;
+import static czg.MainWindow.*;
 
 public class InventarScene extends BaseScene {
-    
-    private static final int iLeft = (int)(WIDTH * 0.05);
-    private static final int iTop = (int)(HEIGHT * 0.675);
-    private static final int iWidth = (int)(WIDTH * 0.75);
-    private static final int iHeight = (int)(HEIGHT * 0.28);
+
+    /**
+     * X-Koordinate der linken Seite
+     */
+    private static final int iLeft = (int)(WIDTH * 0.03);
+    /**
+     * Y-Koordinate der oberen Seite
+     */
+    private static final int iTop = (int)(HEIGHT * 0.03);
+    /**
+     * Breite des Inventars
+     */
+    private static final int iWidth = WIDTH - 2 * iLeft;
+    /**
+     * Höhe des Inventars
+     */
+    private static final int iHeight = (int)(HEIGHT * 0.3);
+    /**
+     * Abstand zwischen Items
+     */
     private static final int iPadding = (int)(WIDTH * 0.025);
-    
-    
+
+
+    private final String[] ITEM_NAMES;
     
     public InventarScene() {
+        // Items
+        ITEM_NAMES = new String[PlayerObject.INSTANCE.inventar.size()];
+
+        int x = iLeft + iPadding;
+        for(int i = 0; i < PlayerObject.INSTANCE.inventar.size(); i++) {
+            ItemObject item = PlayerObject.INSTANCE.inventar.get(i);
+
+            // Sprite
+            BaseObject itemObject = new BaseObject(item.SPRITE, x, iTop + ((int) (HEIGHT * 0.05)));
+            objects.add(itemObject);
+
+            // Name speichern
+            ITEM_NAMES[i] = item.NAME;
+
+            x += itemObject.width + iPadding;
+        }
+
+        // Button zum Schließen
         ButtonObject exit = new ButtonObject (
                 Images.get("/assets/minigames/general/button_exit.png"),
-            
-                () -> SceneStack.INSTANCE.pop()
-        );  
-   
-        exit.x = 440;
-        exit.y = (HEIGHT/2) - (exit.height/2);
+                SceneStack.INSTANCE::pop
+        );
+
+        exit.x = iLeft + iWidth - iPadding - exit.sprite.getWidth(null) * PIXEL_SCALE;
+        exit.y = iTop + (iHeight / 2) - (exit.sprite.getHeight(null) * PIXEL_SCALE )/2;
         objects.add(exit);
     }
     
     @Override
     public void draw(Graphics2D g) {
-        super.draw(g);
-        
-        g.setColor(new Color(64, 62, 57));
+        // Hintergrund
+        g.setColor(new Color(0x9A6B9C));
         g.fillRect(iLeft, iTop, iWidth, iHeight);
-        
-        for(int i = 0; i < PlayerObject.INSTANCE.inventar.size(); i++) {
-            ItemObject item = PlayerObject.INSTANCE.inventar.get(i);
-            
-            g.drawImage(item.SPRITE, iLeft + (int)(WIDTH * 0.025) + (item.SPRITE.getWidth(null) + iPadding) * i, iTop + ((int)(HEIGHT*0.05)), null);
-            //drawTextCentered();
+
+        // Text
+        g.setColor(Color.WHITE);
+        g.setFont(Draw.FONT_TITLE.deriveFont(20f));
+        for (int i = 0; i < objects.size()-1; i++) {
+            BaseObject itemObject = objects.get(i);
+            Draw.drawTextCentered(g, ITEM_NAMES[i], itemObject.x + itemObject.width / 2, itemObject.y + itemObject.height + 32);
         }
+
+        // Objekte
+        super.draw(g);
     }
     
 }
