@@ -21,21 +21,23 @@ public class TangramPieceObject extends BaseObject {
 
     private boolean isDragged = false;
 
-    public static final TangramPieceObject[] PIECES = new TangramPieceObject[] {
-        new TangramPieceObject(0, "/assets/minigames/mathematics/tangram_piece_00.png"),
-        new TangramPieceObject(1, "/assets/minigames/mathematics/tangram_piece_01.png"),
-        new TangramPieceObject(2, "/assets/minigames/mathematics/tangram_piece_02.png"),
-        new TangramPieceObject(3, "/assets/minigames/mathematics/tangram_piece_03.png"),
-        new TangramPieceObject(4, "/assets/minigames/mathematics/tangram_piece_04.png"),
-        new TangramPieceObject(5, "/assets/minigames/mathematics/tangram_piece_05.png"),
-        new TangramPieceObject(6, "/assets/minigames/mathematics/tangram_piece_06.png"),
-    };
-
-    private TangramPieceObject(int id, String path) {
-       super(Images.get(path));
+    private TangramPieceObject(int id) {
+       super(Images.get(String.format("/assets/minigames/mathematics/tangram_piece_%02d.png", id)));
        this.ID = id;
        this.rotation = 0;
        this.levelScene = null;
+    }
+
+    public static TangramPieceObject[] generatePieces() {
+        return new TangramPieceObject[] {
+            new TangramPieceObject(0),
+            new TangramPieceObject(1),
+            new TangramPieceObject(2),
+            new TangramPieceObject(3),
+            new TangramPieceObject(4),
+            new TangramPieceObject(5),
+            new TangramPieceObject(6)
+        };
     }
 
     public static void setLevelScene(TangramPieceObject[] pieces, MathematicsLevelScene levelScene) {

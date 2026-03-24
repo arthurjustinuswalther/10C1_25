@@ -13,99 +13,108 @@ public enum MathematicsPuzzleObject {
             {0.33, 0.0, 90.0},
             {0.5, 0.0, 0.0},
             {0.33, 0.4, 180.0},
+            {0.0, 0.0, 90.0},
+            {0.33, 0.6, 0.0}
+        },
+        {
+            {0.0, 0.4, 0.0},
+            {0.66, 0.0, 0.0},
+            {0.33, 0.0, 0.0},
+            {0.0, 0.2, 0.0},
+            {0.33, 0.6, 0.0},
+            {0.5, 0.4, 0.0},
+            {0.17, 0.0, 0.0}
+        }
+    }),
+    P_01("/assets/minigames/mathematics/puzzle_1_1.png", 2, new double[][][] {
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
             {0.5, 0.2, 90.0},
             {0.33, 0.6, 0.0}
         }
     }),
-    P_01("/assets/minigames/mathematics/puzzle_1_1.png", 2, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
-    }),
     P_02("/assets/minigames/mathematics/puzzle_1_1.png", 2, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     }),
 
-    P_10("/assets/minigames/mathematics/puzzle_1_1.png", 0, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+    P_10("/assets/minigames/mathematics/puzzle_1_1.png", 1, new double[][][] {
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     }),
-    P_11("/assets/minigames/mathematics/puzzle_1_1.png", 0, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+    P_11("/assets/minigames/mathematics/puzzle_1_1.png", 1, new double[][][] {
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     }),
-    P_12("/assets/minigames/mathematics/puzzle_1_1.png", 0, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+    P_12("/assets/minigames/mathematics/puzzle_1_1.png", 1, new double[][][] {
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     }),
 
     P_20("/assets/minigames/mathematics/puzzle_1_1.png", 0, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     }),
     P_21("/assets/minigames/mathematics/puzzle_1_1.png", 0, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     }),
     P_22("/assets/minigames/mathematics/puzzle_1_1.png", 0, new double[][][] {
-            {
-                    {0.33, 0.4, 0.0},
-                    {0.0, 0.0, 180.0},
-                    {0.33, 0.0, 90.0},
-                    {0.5, 0.0, 0.0},
-                    {0.33, 0.4, 180.0},
-                    {0.5, 0.2, 90.0},
-                    {0.33, 0.6, 0.0}
-            }
+        {
+            {0.33, 0.4, 0.0},
+            {0.0, 0.0, 180.0},
+            {0.33, 0.0, 90.0},
+            {0.5, 0.0, 0.0},
+            {0.33, 0.4, 180.0},
+            {0.5, 0.2, 90.0},
+            {0.33, 0.6, 0.0}
+        }
     });
 
     public static final MathematicsPuzzleObject[][] PUZZLES = {
@@ -187,7 +196,7 @@ public enum MathematicsPuzzleObject {
                 piece.rotation == solution[2] + rotOffset;
     }
     
-    private void setGivenPieces(TangramPieceObject[] pieces, int x, int y, int scale) {
+    private void setGivenPieces(TangramPieceObject[] pieces, int x, int y, int width, int height) {
         int[] idx = new int[amountOfGivenPieces];
         for(int i = 0; i < amountOfGivenPieces; i++) {
             idx[i] = -1;
@@ -196,7 +205,7 @@ public enum MathematicsPuzzleObject {
         for(int i = 0; i < amountOfGivenPieces; i++) {
             int rIdx;
             while(true) {
-                rIdx = (int) (amountOfGivenPieces * new Random().nextDouble());
+                rIdx = (int) (7 * new Random().nextDouble());
                 boolean validIdx = true;
                 for(int j = 0; j < amountOfGivenPieces; j++) {
                     if (idx[j] == rIdx) {
@@ -211,15 +220,14 @@ public enum MathematicsPuzzleObject {
         
         int rSolution = (int) (solutions.length * new Random().nextDouble());
         for(int i : idx) {
-            // TEMPORÄR IMMER i = 0 UNBEDINGT NOCH ÄNDERN
-            pieces[0].x = (int) (x + solutions[rSolution][0][0]*scale);
-            pieces[0].y = (int) (y + solutions[rSolution][0][1]*scale);
-            pieces[0].setRotation(solutions[rSolution][0][2]);
+            pieces[i].setRotation(solutions[rSolution][i][2]);
+            pieces[i].x = (int) (x + solutions[rSolution][i][0]*width);
+            pieces[i].y = (int) (y + solutions[rSolution][i][1]*height);
         }
     }
     
-    public void reset(TangramPieceObject[] pieces, int x, int y, int size) {
+    public void reset(TangramPieceObject[] pieces, int x, int y, int size, int px, int py, int pwidth, int pheight) {
         TangramPieceObject.generatePacked(pieces, x, y, size, size);
-        setGivenPieces(pieces, x, y, size);
+        setGivenPieces(pieces, px, py, pwidth, pheight);
     }
 }

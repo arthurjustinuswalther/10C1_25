@@ -20,19 +20,8 @@ public class MathematicsLevelScene extends LevelScene {
     public MathematicsLevelScene(int level) {
         super(Department.MATHEMATICS, level);
 
-        // PLEASE HELP!!!
-        // Das Array ist anderes Objekt, aber inhalte sind die selben objekte
-        // mimimi :(
-        this.PIECES = TangramPieceObject.PIECES.clone();
-
+        // Puzzle erstellen
         this.PUZZLE = MathematicsPuzzleObject.getPuzzle(level);
-
-        TangramPieceObject.setLevelScene(PIECES, this);
-
-        PUZZLE.reset(this.PIECES, MainWindow.HEIGHT / 4, MainWindow.HEIGHT / 4, MainWindow.HEIGHT/2);
-
-        objects.addAll(Arrays.asList(PIECES));
-
 
         BaseObject puzzleObject = new BaseObject(PUZZLE.sprite, 0, 0);
 
@@ -50,12 +39,19 @@ public class MathematicsLevelScene extends LevelScene {
         puzzleObject.y = PUZZLE_Y;
 
         objects.add(puzzleObject);
+
+        // Steine erstellen
+        this.PIECES = TangramPieceObject.generatePieces();
+
+        TangramPieceObject.setLevelScene(PIECES, this);
+
+        PUZZLE.reset(PIECES, MainWindow.HEIGHT / 4, MainWindow.HEIGHT / 4, MainWindow.HEIGHT/2, PUZZLE_X, PUZZLE_Y, PUZZLE_WIDTH, PUZZLE_HEIGHT);
+
+        objects.addAll(Arrays.asList(PIECES));
     }
 
     public void checkPuzzle() {
-        System.out.println("check");
         if(PUZZLE.isSolutionValid(PIECES, PUZZLE_X, PUZZLE_Y, PUZZLE_WIDTH, PUZZLE_HEIGHT)) {
-            System.out.println("won");
             minigameWon();
         }
     }
