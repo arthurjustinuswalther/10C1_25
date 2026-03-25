@@ -93,20 +93,20 @@ public class TangramPieceObject extends BaseObject {
 
         rotation %= 360;
 
-        double scaleX = (double) this.width / sprite.getWidth(null);
-        double scaleY = (double) this.height / sprite.getHeight(null);
+        double scaleX = (double) width / sprite.getWidth(null);
+        double scaleY = (double) height / sprite.getHeight(null);
 
         Image rotatedSprite = Images.rotateImage(Images.get(SPRITE_PATH), rotation);
 
-        Point imageCenter = new Point(this.x + this.width/2, this.y + this.height/2);
+        Point imageCenter = new Point(x + width/2, y + height/2);
 
-        this.width = (int) (rotatedSprite.getWidth(null) * scaleX);
-        this.height = (int) (rotatedSprite.getHeight(null) * scaleY);
+        width = (int) (rotatedSprite.getWidth(null) * scaleX);
+        height = (int) (rotatedSprite.getHeight(null) * scaleY);
 
-        this.sprite = rotatedSprite;
+        sprite = rotatedSprite;
 
-        this.x = imageCenter.x -this.width/2;
-        this.y = imageCenter.y - this.height/2;
+        x = imageCenter.x - width/2;
+        y = imageCenter.y - height/2;
     }
 
     public void setRotation(double degree) {
