@@ -6,14 +6,16 @@ import java.awt.*;
 import java.util.Random;
 
 public enum MathematicsPuzzleObject {
-    P_00("/assets/minigames/mathematics/puzzle_1_1.png", 2, new double[][][] {
+    // Level 1
+    // Herz
+    P_00("/assets/minigames/mathematics/puzzle_1_1.png", 7, new double[][][] {
         {
             {0.33, 0.4, 0.0},
             {0.0, 0.0, 180.0},
             {0.33, 0.0, 90.0},
             {0.5, 0.0, 0.0},
             {0.33, 0.4, 180.0},
-            {0.0, 0.0, 90.0},
+            {0.5, 0.2, 90.0},
             {0.33, 0.6, 0.0}
         },
         {
@@ -26,29 +28,32 @@ public enum MathematicsPuzzleObject {
             {0.17, 0.0, 0.0}
         }
     }),
-    P_01("/assets/minigames/mathematics/puzzle_1_1.png", 2, new double[][][] {
+    // Schwan
+    P_01("/assets/minigames/mathematics/puzzle_1_2.png", 7, new double[][][] {
         {
-            {0.33, 0.4, 0.0},
-            {0.0, 0.0, 180.0},
-            {0.33, 0.0, 90.0},
-            {0.5, 0.0, 0.0},
-            {0.33, 0.4, 180.0},
-            {0.5, 0.2, 90.0},
-            {0.33, 0.6, 0.0}
+            {0.0, 0.55, 0.0},
+            {0.2, 0.55, 45.0},
+            {0.68, 0.55, 315.0}, // wird irgendwie zuerst positioniert und dann rotiert, obwohl ich das eigentlich andersherum gemacht habe. machste nix
+            {0.75, 0.0, 225.0}, // same here
+            {0.75, 0.47, 0.0},
+            {0.58, 0.0, 0.0},
+            {0.58, 0.31, 0.0}
         }
     }),
-    P_02("/assets/minigames/mathematics/puzzle_1_1.png", 2, new double[][][] {
+    // Berg (aktuell noch Schwan)
+    P_02("/assets/minigames/mathematics/puzzle_1_2.png", 7, new double[][][] {
         {
-            {0.33, 0.4, 0.0},
-            {0.0, 0.0, 180.0},
-            {0.33, 0.0, 90.0},
-            {0.5, 0.0, 0.0},
-            {0.33, 0.4, 180.0},
-            {0.5, 0.2, 90.0},
-            {0.33, 0.6, 0.0}
+            {0.0, 0.55, 0.0},
+            {0.2, 0.55, 45.0},
+            {0.68, 0.55, 315.0}, // wird irgendwie zuerst positioniert und dann rotiert, obwohl ich das eigentlich andersherum gemacht habe. machste nix
+            {0.75, 0.0, 225.0}, // same here
+            {0.75, 0.47, 0.0},
+            {0.58, 0.0, 0.0},
+            {0.58, 0.31, 0.0}
         }
     }),
 
+    // Level 2
     P_10("/assets/minigames/mathematics/puzzle_1_1.png", 1, new double[][][] {
         {
             {0.33, 0.4, 0.0},
