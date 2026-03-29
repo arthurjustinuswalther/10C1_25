@@ -27,21 +27,11 @@ public class MathematicsLevelScene extends LevelScene {
      * @param level Entweder {@code 0}, {@code 1} oder {@code 2}
      */
     public MathematicsLevelScene(int level) {
+        super(Department.MATHEMATICS, level);
+
         // Zufällig eines der drei für dieses Level verfügbaren
         // Puzzles wählen
-        this(level, MathematicsPuzzle.getPuzzle(level));
-    }
-
-    /**
-     * Eigentlicher Konstruktor. Das {@code puzzle} ist entweder ein zufälliges
-     * ({@link #MathematicsLevelScene(int)}) oder das eines existierenden Levels,
-     * wenn dieser Konstruktor über {@link #reset()} aufgerufen wird.
-     * @param level Level-Nummer
-     * @param puzzle Zu verwendendes {@link MathematicsPuzzle}
-     */
-    private MathematicsLevelScene(int level, MathematicsPuzzle puzzle) {
-        super(Department.MATHEMATICS, level);
-        this.PUZZLE = puzzle;
+        this.PUZZLE = MathematicsPuzzle.getPuzzle(level);
 
         BaseObject puzzleObject = new BaseObject(PUZZLE.sprite, 0, 0);
 
@@ -78,7 +68,7 @@ public class MathematicsLevelScene extends LevelScene {
      */
     @Override
     public LevelScene reset() {
-        return new MathematicsLevelScene(this.LEVEL, this.PUZZLE);
+        return new MathematicsLevelScene(this.LEVEL);
     }
 
     /**
