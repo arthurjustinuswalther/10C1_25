@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package czg.scenes.minigame;
 
 import czg.objects.Department;
-import static czg.objects.Department.COMPUTER_SCIENCE;
 import czg.scenes.BaseScene;
 import czg.scenes.SceneStack;
 
@@ -42,6 +37,13 @@ public class Minigames {
                     new ChemieLevelScene(0),
                     new ChemieLevelScene(1),
                     new ChemieLevelScene(2)
+                );
+            }
+            case PHYSICS -> {
+                return new LevelSelectorScene(
+                    new PhysikLevelScene(0),
+                    new PhysikLevelScene(1),
+                    new PhysikLevelScene(2)
                 );
             }
             
