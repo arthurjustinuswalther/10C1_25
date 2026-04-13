@@ -1,34 +1,38 @@
 Jedes Minispiel ist aus drei Leveln aufgebaut, welche progressiv schwerer werden.
 So dient das erste Level als Einführung in die Mechaniken des jeweiligen Minispiels.
-Das zweite Level kann als \glqq standard\grqq\ Schwierigkeitsgrad verstanden werden und im Dritten können die Spielenden dann ihre erlernten Fähigkeiten in schwierigen Herausforderungen unter Beweis stellen.
-Nach dem erfolgreichen Beenden eines Levels erhält die Spielfigur ein Item, welches dann im Kamp verwendet werden kann.
-Diese Items hängen von der Fachschaft und des Schwierigkeitsgrades ab.
+Das zweite Level kann als \glqq standard\grqq{}-Schwierigkeitsgrad verstanden werden und im Dritten können die Spielenden dann ihre erlernten Fähigkeiten in schwierigen Herausforderungen unter Beweis stellen.
+Nach dem erfolgreichen Beenden eines Levels erhält die Spielfigur ein Item, welches dann im Kampf verwendet werden kann.
+Diese Items hängen von der Fachschaft und dem Schwierigkeitsgrad ab.
 Die Stärke der Items skaliert also mit der Schwierigkeit des beendeten Levels. 
 Da das Bearbeiten schwererer Level länger dauert, wird dies dementsprechend belohnt.\\
 Im Allgemeinen soll jedes Minispiel mit einer Auswahl des Schwierigkeitsgrades beginnen, welche auch wieder verlassen werden kann, wenn sich doch gegen das Spielen entschieden wird.
-Jedes Level bietet zusätzlich noch die Möglichkeit zur Auswahl zurückzukehren.
-Nach dem Abschließen des selbigen ist es ebenfalls möglich das Level neu zu starten.
+Jedes Level bietet zusätzlich noch die Möglichkeit, zur Auswahl zurückzukehren.
+Nach dem Abschließen des selbigen ist es ebenfalls möglich, das Level neu zu starten.
 
 
 \subsection{Informatik}
 
-Die Level der Fachschaft Informatik bestehen jeweils aus einem Schaltkreis, bei dem Logikgatter fehlen und einer bestimmten Menge ebendieser, aus denen die fehlenden ausgewählt werden müssen.
+Die Level der Fachschaft Informatik bestehen jeweils aus zwei wesentlichen
+Komponenten: Zunächst gibt es einen Schaltkreis, welcher, jeweils in verschiedenen Zuständen, vierfach abgebildet ist. Dieser besteht aus Tastern, mit \glqq{}?\grqq{} verdeckten Logikgattern sowie Lämpchen. Daneben dargestellt sind verschiedene Logikgatter, aus welchen das im Schaltkreis verdeckte bzw. die
+im Schaltkreis verdeckten ausgewählt werden müssen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{bilder/MinispielInformatik.png}
+	\caption{Level 2 des Minispiels der Fachschaft Informatik}
+	\label{fig:mginf}
+\end{figure}
+
+
 Verschiedene Schwierigkeiten werden auf zwei Weisen ermöglicht:
 
 \begin{itemize}
-    \item[] Zum einen verändert sich die Anzahl an Logikgattern, aus denen ausgewählt werden kann.
-            So sind es im ersten Level 4 Logikgatter, im zweiten Level 5 Logikgatter und im dritten Level 6 Logikgatter, die zur Auswahl zur Verfügung stehen.
-    \item[] Zum anderen ändert sich der Schaltkreis, bei dem die Gatter entfernt wurden, sowie die Anzahl an entfernten Gattern.
+    \item Die Anzahl an Logikgattern, aus denen ausgewählt werden kann, erhöht sich mit jedem Schwierigkeitsgrad.
+            So sind es im ersten Level 4, im zweiten Level 5 und im dritten Level 6 Logikgatter, welche zur Auswahl stehen.
+    \item Die Komplexität des Schaltkreises sowie die Anzahl an verdeckten Gattern ändern sich dem Schwierigkeitsgrad entsprechend.
 \end{itemize}
 
-Jedes Level verwendet außerdem, im Sinne der Variabilität, drei verschiedene Schaltkreise, aus denen, bei jedem Minispiel-Start, einer zufällig gewählt wird.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=.7\textwidth]{bilder/MinispielInformatik.png}
-    \caption{Level 2 des Minispiels der Fachschaft Informatik}
-    \label{fig:mginf}
-\end{figure}
+Jedes Level verwendet außerdem, im Sinne der Variabilität, drei verschiedene Schaltkreise, aus denen bei jedem Minispiel-Start einer zufällig gewählt wird.
 
 \subsubsection{Level 1}
 
@@ -42,7 +46,7 @@ Gesucht wird also das Logikgatter $G \in \{\land , \lor , \overline{\land}, \ove
 Dadurch, dass jeder Schaltkreis zwei Eingänge und einen Ausgang besitzt, ergeben sich vier mögliche Zustände, die in Form einer Wahrheitswerttabelle dargestellt werden können.
 Für die Rätsel des ersten Levels wurden folgende Tabellen festgelegt:
 
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \begin{minipage}{.33\textwidth}
         $G = \land$\\
@@ -257,13 +261,13 @@ Die anderen werden als Tabelle präsentiert.
 \subsubsection{Reflexion}
 
 Bei dem Minispiel der Fachschaft Informatik wird die Theorie spielerisch mit der Praxis verbunden.
-Die Spielenden werden mit abstrakten boolschen Operationen, sowie mit erwarteten Ergebnissen konfrontiert und können ihre Überlegungen dann anhand von Logikgattern und Schaltkreisen in die Tat umsetzten.
-Es fördert vor allem logisches Denken, jedoch auch die Fähigkeit mit begrenzten Mitteln ein gewünschtes Ergebnis zu erziehlen.
+Die Spielenden werden mit abstrakten boolschen Operationen sowie mit erwarteten Ergebnissen konfrontiert und können ihre Überlegungen dann anhand von Logikgattern und Schaltkreisen in die Tat umsetzten.
+Es fördert vor allem logisches Denken, jedoch auch die Fähigkeit, mit begrenzten Mitteln ein gewünschtes Ergebnis zu erziehlen.
 Außerdem regen die Rätsel durch ihre Komplexitität dazu an, Lösungsstrategien zu entwickeln, anstatt Antwortmöglichkeiten einfach auszuprobieren oder gar zu raten.\\
 Das erste Level bietet einen guten Einstieg in die Funktionsweise des Spieles, da hier nur die Eigenschaften der einzelnen Gatter abgefragt und diese noch nicht verkettet werden.
 Der Schwierigkeitsgrad nimmt im zweiten Level deutlich zu, jedoch kann hier durch Überlegungen, die zur Vereinfachungen des Problemes führen\footnote{Beispielsweise folgende Aussage: \glqq Der Ausgang ist in jedem Fall gleich Eingang 1.\grqq} dennoch gut eine Lösung gefunden werden.
 Das dritte Level ist sehr komplex.
-Es verlangt das Verbinden von drei Gatter miteinander, was definitiv über den Rahmen eines schnellen Minispiels hinaus reicht.
+Es verlangt das Verbinden dreier Gatter miteinander, was definitiv über den Rahmen eines schnellen Minispiels hinausreicht.
 Hier kann zwar analog zu Level 2 vereinfacht werden, jedoch bleibt das Problem dadurch dennoch sehr schwierig.
 Eine Mögliche Lösung wäre das Vorgeben eines oder mehrerer Gatter, ähnlich zum in \ref{sec:mathematics} beschriebenen Mathe-Minispiel.
 Auch denkbar wäre eine Einschränkung der Antwortmöglichkeiten.
