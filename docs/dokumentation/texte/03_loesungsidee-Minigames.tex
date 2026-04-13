@@ -82,24 +82,25 @@ Für die Rätsel des ersten Levels wurden folgende Tabellen festgelegt:
         \end{tabular}
     \end{minipage}
     \caption{Wahrheitswerttabellen für Level 1 des Informatik-Minispiels}
-    \label{tab:wahrheitswerttabellen01}
+    \label{tab:wwt01}
 \end{table}
 
-Diese Tabellen werden den Spielenden, aufgrund der ansprechenderen Gestaltung, in Form einer Abbildung präsentiert.
+Diese Tabellen werden den Spielenden, aufgrund der ansprechenderen Gestaltung, in Form einer Abbildung präsentiert, welche die vier Zustände des Schaltkreises darstellt.
 Ebenfalls im Sinne der Gestaltung wurde auf die Konvention, die Eingänge auf der linken Seite und die Ausgänge auf der rechten Seite darzustellen, verzichtet.
-In der Abbildung \ref{tab:wahrheitswerttabellen01} ist dies beispielhaft anhand der ersten Wahrheitswerttabelle ($G = \land$) zu erkennen.
+In der Abbildung \ref{tab:wwt01} ist dies beispielhaft anhand der ersten Wahrheitswerttabelle ($G = \land$) zu erkennen.
 
-<<<<<<< HEAD
 \subsubsection{Level 2}
 
 Im zweiten Level bestehen die Schaltkreise ebenfalls aus zwei Eingängen, sowie einem Ausgang.
 Der Unterschied zu Level 1 besteht hierbei darin, dass zwei Logikgatter entfernt wurden.
 Durch das erste werden beide Eingänge verbunden.
 Der dadurch resultierende Ausgang wird im zweiten Logikgatter wieder mit einem der Eingänge verbunden, wodurch der finale Ausgang entsteht.
+Außerdem wurde zur Reduzierung der Komplexitität die Einschränkung hinzugefügt, dass sich die Gatter unterscheiden müssen.
 Gesucht werden also die Logikgatter $G_1, G_2 \in \{\land , \lor , \overline{\land}, \overline{\lor}, \veebar, \overline{\veebar}\}$, welche folgende Bedingungen erfüllen:
 
 \begin{align*}
-    (x_1 G_1 x_2) G_2 x_2 = y
+    (x_1 G_1 x_2) G_2 x_2 &= y\\
+    G_1 &\neq G_2
 \end{align*}
 
 Dadurch, dass jeder Schaltkreis auch im zweiten Level zwei Eingänge und einen Ausgang besitzt, ergeben sich wieder vier mögliche Zustände, die in Form einer Wahrheitswerttabelle dargestellt werden können.
@@ -108,8 +109,24 @@ Für die Rätsel des zweiten Levels wurden folgende Tabellen festgelegt:
 \begin{table}[h!]
     \centering
     \begin{minipage}{.33\textwidth}
-        $G_1 = \veebar$\\
-        $G_2 = \overline{\veebar}$
+        $G_1 = \land$\\
+        $G_2 = \overline{\lor}$
+        \vfill
+        \begin{tabular}{|c|c|c|} 
+            \hline
+            $x_1$ & $x_2$ & $y$ \\
+            \hline\hline
+            $0$ & $0$ & $1$ \\
+            $0$ & $1$ & $0$ \\
+            $1$ & $0$ & $1$ \\
+            $1$ & $1$ & $0$ \\
+            \hline
+        \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.32\textwidth}
+        $G_1 = \lor$\\
+        $G_2 = \veebar$
         \vfill
         \begin{tabular}{|c|c|c|} 
             \hline
@@ -118,30 +135,14 @@ Für die Rätsel des zweiten Levels wurden folgende Tabellen festgelegt:
             $0$ & $0$ & $0$ \\
             $0$ & $1$ & $0$ \\
             $1$ & $0$ & $1$ \\
-            $1$ & $1$ & $1$ \\
-            \hline
-        \end{tabular}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{.32\textwidth}
-        $G_1 = \veebar$\\
-        $G_2 = \overline{\veebar}$
-        \vfill
-        \begin{tabular}{|c|c|c|} 
-            \hline
-            $x_1$ & $x_2$ & $y$ \\
-            \hline\hline
-            $0$ & $0$ & $1$ \\
-            $0$ & $1$ & $0$ \\
-            $1$ & $0$ & $0$ \\
-            $1$ & $1$ & $1$ \\
+            $1$ & $1$ & $0$ \\
             \hline
         \end{tabular}
     \end{minipage}
     \hfill
     \begin{minipage}{.33\textwidth}
-        $G_1 = \veebar$\\
-        $G_2 = \overline{\veebar}$
+        $G_1 = \overline{\land}$\\
+        $G_2 = \lor$
         \vfill
         \begin{tabular}{|c|c|c|} 
             \hline
@@ -149,42 +150,99 @@ Für die Rätsel des zweiten Levels wurden folgende Tabellen festgelegt:
             \hline\hline
             $0$ & $0$ & $1$ \\
             $0$ & $1$ & $1$ \\
-            $1$ & $0$ & $0$ \\
-            $1$ & $1$ & $0$ \\
+            $1$ & $0$ & $1$ \\
+            $1$ & $1$ & $1$ \\
             \hline
         \end{tabular}
     \end{minipage}
-    \caption{Wahrheitswerttabellen für Level 1 des Informatik-Minispiels}
-    \label{tab:wahrheitswerttabellen02}
+    \caption{Wahrheitswerttabellen für Level 2 des Informatik-Minispiels}
+    \label{tab:wwt02}
 \end{table}
 
-Diese Tabellen werden den Spielenden, aufgrund der ansprechenderen Gestaltung, in Form einer Abbildung präsentiert.
-In der Abbildung \ref{tab:wahrheitswerttabellen01} ist dies beispielhaft anhand der ersten Wahrheitswerttabelle ($G = \land$) zu erkennen.
+Diese Tabellen werden analog zu Level 1 als Abbildungen dargestellt.
 
-\begin{tabular}{|c|c|c|} 
-    \hline
-    $x_1$ & $x_2$ & $y$ \\
-    \hline\hline
-    $0$ & $0$ & $1$ \\
-    $0$ & $1$ & $1$ \\
-    $1$ & $0$ & $1$ \\
-    $1$ & $1$ & $0$ \\
-    \hline
-\end{tabular}
+\subsubsection{Level 3}
 
-Endgültige Liste einzigartiger Y-Vektoren mit Kombinationen:
+Im dritten Level bestehen die Schaltkreise aus drei Eingängen, einem Ausgang und drei entfernten Logikgattern.
+Durch die ersten beiden werden jeweils zwei der Eingänge miteinander verbunden.
+Die dadurch resultierenden Ausgänge werden im dritten Logikgatter verbunden, wodurch der finale Ausgang entsteht.
+Gesucht werden also die Logikgatter $G_1, G_2, G_3 \in \{\land , \lor , \overline{\land}, \overline{\lor}, \veebar, \overline{\veebar}\}$, welche folgende Bedingungen erfüllen:
 
-    AND → NAND : 1,1,1,0
-    AND → NOR : 1,0,1,0
-    AND → XNOR : 1,0,1,1
-    OR → XOR : 0,0,1,0
-    OR → XNOR : 1,1,0,1
-    NAND → AND : 1,1,0,0
-    NAND → OR : 1,1,1,1
-    NAND → NOR : 0,0,0,1
-    NOR → AND : 1,0,0,0
-    NOR → XNOR : 0,1,1,1
-    XOR → AND : 0,1,0,0
-    XOR → NAND : 1,0,1,1
-    XOR → XNOR : 1,0,0,1
-    XNOR → NAND : 0,1,1,0
+\begin{align*}
+    (x_1 G_1 x_2) G_3 (x_2 G_2 x_3) &= y\\
+    G_1 \neq G_2 &\neq G_3 
+\end{align*}
+
+Dadurch, dass jeder Schaltkreis aus drei Eingänge und einen Ausgang besteht, ergeben sich insgesamt acht mögliche Zustände, die in Form einer Wahrheitswerttabelle dargestellt werden können.
+Für die Rätsel des dritten Levels wurden folgende Tabellen festgelegt:
+
+\begin{table}[h!]
+    \centering
+    \begin{minipage}{.33\textwidth}
+        $G_1 = \land$\\
+        $G_2 = \veebar$\\
+        $G_3 = \lor$
+        \vfill
+        \begin{tabular}{|c|c|c|c|} 
+            \hline
+            $x_1$ & $x_2$ & $x_3$ & $y$\\
+            \hline\hline
+            $0$ & $0$ & $0$ & $0$\\
+            $0$ & $0$ & $1$ & $1$\\
+            $0$ & $1$ & $0$ & $1$\\
+            $0$ & $1$ & $1$ & $0$\\
+            $1$ & $0$ & $0$ & $0$\\
+            $1$ & $0$ & $1$ & $1$\\
+            $1$ & $1$ & $0$ & $1$\\
+            $1$ & $1$ & $1$ & $1$\\
+            \hline
+        \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.32\textwidth}
+        $G_1 = \overline{\veebar}$\\
+        $G_2 = \land$\\
+        $G_3 = \lor$
+        \vfill
+        \begin{tabular}{|c|c|c|c|} 
+            \hline
+            $x_1$ & $x_2$ & $x_3$ & $y$\\
+            \hline\hline
+            $0$ & $0$ & $0$ & $1$\\
+            $0$ & $0$ & $1$ & $1$\\
+            $0$ & $1$ & $0$ & $0$\\
+            $0$ & $1$ & $1$ & $1$\\
+            $1$ & $0$ & $0$ & $0$\\
+            $1$ & $0$ & $1$ & $0$\\
+            $1$ & $1$ & $0$ & $1$\\
+            $1$ & $1$ & $1$ & $1$\\
+            \hline
+        \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.33\textwidth}
+        $G_1 = \veebar$\\
+        $G_2 = \lor$\\
+        $G_3 = \land$
+        \vfill
+        \begin{tabular}{|c|c|c|c|} 
+            \hline
+            $x_1$ & $x_2$ & $x_3$ & $y$\\
+            \hline\hline
+            $0$ & $0$ & $0$ & $0$\\
+            $0$ & $0$ & $1$ & $0$\\
+            $0$ & $1$ & $0$ & $1$\\
+            $0$ & $1$ & $1$ & $1$\\
+            $1$ & $0$ & $0$ & $0$\\
+            $1$ & $0$ & $1$ & $1$\\
+            $1$ & $1$ & $0$ & $0$\\
+            $1$ & $1$ & $1$ & $0$\\
+            \hline
+        \end{tabular}
+    \end{minipage}
+    \caption{Wahrheitswerttabellen für Level 3 des Informatik-Minispiels}
+    \label{tab:wwt03}
+\end{table}
+
+Da die Wahrheitswerttabellen des dritten Levels acht Zustände beinhalten, wird auf die Darstellung jedes einzelnen Zustandes verzichtet und nur der erste Zustand als Schaltkreis abgebildet.
+Die anderen werden als Tabelle präsentiert.
