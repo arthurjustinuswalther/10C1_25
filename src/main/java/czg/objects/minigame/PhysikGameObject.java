@@ -12,13 +12,13 @@ import java.awt.geom.Rectangle2D;
 
 /**
 * Das Physik-Minigame als BaseObject.
-*
+* <p>
 * Der Spieler zieht einen Kraftpfeil vom Ball weg. Nach dem Klick auf
 * "Simulate" fliegt der Ball unter Einfluss der Basisbeschleunigungen
 * (Gravity + levelspezifische Kräfte) los. Trifft er das Ziel, gewinnt
 * der Spieler. Fliegt er aus dem Bildschirm oder gegen eine Wand, verliert
 * der Spieler.
-*
+* <p>
 * Drei Level:
 * Level 0 – Nur Schwerkraft nach unten, Kraft nach rechts ziehen
 * Level 1 – Schwerkraft + Drift nach links, Kraft nach rechts ziehen
@@ -68,9 +68,7 @@ public class PhysikGameObject extends BaseObject {
     //Basisbeschleunigungen des Levels
     private double[][] basisBeschleunigungen;
     // Maus-Status (verhindert Mehrfachklicks pro Frame)
-    private boolean warGedrueckt = false;
     //Bilder
-    private Image hintergrundBild;
     private Image ballBild;
     private Image buttonBild;private Image wandBild;
     
@@ -138,7 +136,6 @@ public class PhysikGameObject extends BaseObject {
     * Ist ein Bild nicht vorhanden, wird Fallback gezeichnet
     */
     private void bilderLaden() {
-        hintergrundBild = Images.get("/assets/minigames/physics/PhysikBackground.png");
         ballBild
         = Images.get("/assets/minigames/physics/PhysikBall.png");
         buttonBild
@@ -154,7 +151,6 @@ public class PhysikGameObject extends BaseObject {
         boolean gedrueckt = mouseState == Input.KeyState.PRESSED
                 || mouseState == Input.KeyState.HELD;
         boolean geklickt = mouseState == Input.KeyState.PRESSED;
-        warGedrueckt = mouseState == Input.KeyState.PRESSED || mouseState == Input.KeyState.HELD;
         Point maus = Input.INSTANCE.getMousePosition();
         if (maus == null) return;
         if (phase == PHASE_SIMULATION) {
@@ -266,20 +262,13 @@ public class PhysikGameObject extends BaseObject {
         RenderingHints.VALUE_RENDER_SPEED);
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         RenderingHints.VALUE_ANTIALIAS_ON);
-        
-        // 1. Hintergrund
-        if (hintergrundBild != null) {
-            g2.drawImage(hintergrundBild, 0, 0, BREITE, HOEHE, null);
-        } else {
-            g2.setColor(new Color(30, 30, 60));
-            g2.fillRect(0, 0, BREITE, HOEHE);
-        }
-        // 2. Titel
+
+        // 1. Titel
         g2.setColor(Color.WHITE);
         g2.setFont(new Font("Monospaced", Font.BOLD, 16));
         g2.drawString("Physik-Minigame – Level " + (level + 1), 20, 30);
         
-        // 3. Hinweistext (nur vor Simulation)
+        // 2. Hinweistext (nur vor Simulation)
         if (phase == PHASE_VORBEREITUNG) {
             g2.setFont(new Font("Monospaced", Font.PLAIN, 11));
             g2.setColor(new Color(200, 200, 255));
@@ -289,15 +278,15 @@ public class PhysikGameObject extends BaseObject {
                 g2.drawString("Ziehe vom den Ball nach oben und klicke dann auf Simulate!", 20, 50);
             }
         }
-        // 4. Ziel zeichnen (grau-grün)
+        // 3. Ziel zeichnen (grau-grün)
         zielZeichnen(g2);
-        // 5. Wand zeichnen (nur Level 2)
+        // 4. Wand zeichnen (nur Level 2)
         if (wand != null) wandZeichnen(g2);
-        // 6. Kraftpfeile (nur vor Simulate)
+        // 5. Kraftpfeile (nur vor Simulate)
         if (phase == PHASE_VORBEREITUNG) kraftpfeileZeichnen(g2);
-        // 7. Ball zeichnen
+        // 6. Ball zeichnen
         ballZeichnen(g2);
-        // 8. Simulate-Button (nur Vorbereitungsphase)
+        // 7. Simulate-Button (nur Vorbereitungsphase)
         if (phase == PHASE_VORBEREITUNG) buttonZeichnen(g2);
     }
     
