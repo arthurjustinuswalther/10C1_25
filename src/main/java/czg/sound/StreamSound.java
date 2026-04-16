@@ -244,9 +244,9 @@ public class StreamSound extends BaseSound {
                         // Stream-Ende erreicht:
                         if (bytesRead == -1) {
                             // Entsprechende Aktion ausführen
-                            //      LOOP    -> Seek-Logik wird beim nächsten Durchlauf ausgeführt, isPlaying bleibt true
+                            //      LOOP                -> Seek-Logik wird beim nächsten Durchlauf ausgeführt, isPlaying bleibt true
                             //      RESTART_AND_PAUSE   -> -''-, isPlaying wird false
-                            //      STOP    -> stop() wird aufgerufen, wird aus der Liste entfernt (, isPlaying wird false)
+                            //      STOP                -> stop() wird aufgerufen, wird aus der Liste entfernt, isPlaying wird false
                             sound.endOfFileBehaviour.function.accept(sound);
 
                             // bytesRead-Zähler wird *noch nicht* zurückgesetzt, damit
