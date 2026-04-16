@@ -70,7 +70,15 @@ public class ComputerScienceLevelScene extends LevelScene {
         ));
     }
 
+    /**
+     * Zeichnen des Rahmens um das geantwortete Gatter und Überprüfung, ob die Lösung korrekt ist.
+     * @param gate Das geantwortete Gatter
+     * @param x Dessen X-Position
+     * @param y Dessen Y-Position
+     */
     private void setAnswer(LogicGate gate, int x, int y) {
+        // Falls nur ein Gatter zu antworten ist, wird überprüft, ob dieses korrekt ist und
+        // das Level dementsprechend gewonnen bzw. verloren
         if(PUZZLE.SOLUTION.length == 1) {
             if(gate == PUZZLE.SOLUTION[0])
                 levelWon();
@@ -80,6 +88,7 @@ public class ComputerScienceLevelScene extends LevelScene {
             return;
         }
 
+        // Falls das geantwortete Gatter bereits geantwortet wurde, wird es wieder aus den Antworten entfernt
         if(Arrays.asList(ACTIVE_ANSWERS).contains(gate)) {
             for(int i = 0; i < ACTIVE_ANSWERS.length; i++) {
                 if(ACTIVE_ANSWERS[i] == gate) {
@@ -87,7 +96,10 @@ public class ComputerScienceLevelScene extends LevelScene {
                     objects.remove(ANSWER_FRAMES[i]);
                 }
             }
-        } else {
+        }
+        // Andernfalls wird das geantwortete Gatter an der frühst möglichen Stelle der aktiven Antworten hinzugefügt
+        // und der entsprechende Rahmen gezeichnet.
+        else {
             for(int i = 0; i < ACTIVE_ANSWERS.length; i++) {
                 if(ACTIVE_ANSWERS[i] == null) {
                     ACTIVE_ANSWERS[i] = gate;
@@ -99,6 +111,7 @@ public class ComputerScienceLevelScene extends LevelScene {
             }
         }
 
+        // Überprüfen, ob das Puzzle gelöst wurde
         boolean solved = true;
         for (int i = 0; i < PUZZLE.SOLUTION.length ; i++) {
             if (PUZZLE.SOLUTION[i] != ACTIVE_ANSWERS[i]) {
@@ -107,6 +120,7 @@ public class ComputerScienceLevelScene extends LevelScene {
             }
         }
 
+        // Level gewinnen, falls ja
         if (solved) levelWon();
     }
 
