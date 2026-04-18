@@ -1,10 +1,43 @@
 \chapter{Programmablaufprotokolle}
 
-Der Abschnitt \emph{Programmablaufprotokolle} soll enthalten:
+\section{Steuerung}
 
-\begin{itemize}
- \item gegebenenfalls eine kurze Erklärung der Bedienung des Programms
- \item Beschreibung des Ablaufs des Programms und der Tests, die durchgeführt wurden
- \item Dokumentation der Ergebnisse der Tests und der Fehler, die aufgetreten sind
- \item Erläuterung der Maßnahmen, die ergriffen wurden, um die Fehler zu beheben.
-\end{itemize}
+Die Spielfigur wird durch das anklicken der gelben Pfeile an den Rändern des Spielfensters bzw. der Türen durch das Schulhaus bewegt. Wird die Spielfigur selbst angeklickt, öffnet sich deren Inventar
+und bereits gesammelte Items können eingesehen werden. Das Inventar kann mit einem Klick auf sein rotes \glqq{}X\grqq{} wieder geschlossen werden.
+
+Wird die Taste \texttt{P} gedrückt, öffnet sich ein Fenster, in welchem die Farben der Haare, der
+Haut, des Hoodies und der Hose der Spielfigur angepasst werden kann. Diese Farben können durch
+selbiges Fenster ebenfalls als Datei gespeichert bzw. wieder geladen werden.
+
+\subsection{Minigames}
+
+\subsubsection{Informatik}
+
+\subsubsection{Mathematik}
+
+\subsubsection{Chemie}
+
+\subsubsection{Physik}
+
+\subsubsection{Biologie}
+
+
+\subsection{Kampf}
+
+
+\section{Tests}
+
+\subsection{\texttt{Unit Testing}}
+
+Mithilfe des \texttt{JUnit}-Frameworks wurde eine Reihe von Tests implementiert,
+welche die Funktionalität des Szenenstapels, also dessen Operationen, sowie das
+Szenen-Verdeckungs-Einstellungs-System testet. Die Tests werden bei jedem Push
+auf die GitHub-Repository ausgeführt, es ist also gleich ersichtlich, wenn eine
+Änderung unbeabsichtigte Nebeneffekte hatte.
+
+\subsection{Testen während der Entwicklung}
+
+Bei der Implementierung von neuen Funktionen wurden diese stets umgehend soweit
+getestet und ggf. geändert, dass sie allgemein dem Erwartungsbild entsprachen.
+Andernfalls wurden einige Fehler im späteren Verlauf der Entwicklung beim Spielen
+des Spiels aufgedeckt, gemeldet und, soweit möglich, behoben.
