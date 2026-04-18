@@ -119,7 +119,7 @@ public class InvisibleDoorObject extends BaseObject{
 \end{lstlisting}
 
 \subsection{Gang- und Raumszenen}
-Für jede Gang-/Raumszene wurde eine eigene Klasse erstellt, welche allgemein mit \glqq OrtScene\grqq\ benannt wurden. In diesen Klassen, welche die BaseScene (gecodet von Ashley) erweitern, wird zunächst auf das jeweilige Bild zugegriffen. Danach wird die Pfeilobjekt-Klasse verwendet, um Pfeilobjekte einzufügen, welche in andere Szenen führen. Zum Schluss wird die Spielfigur mit in jeder Szene individueller Position zur Szene hinzugefügt.
+Für jede Gang-/Raumszene wurde eine eigene Klasse erstellt, welche allgemein mit \glqq OrtScene\grqq\ benannt wurden. In diesen Klassen, welche die BaseScene erweitern, wird zunächst auf das jeweilige Bild zugegriffen. Danach wird die Pfeilobjekt-Klasse verwendet, um Pfeilobjekte einzufügen, welche in andere Szenen führen. Zum Schluss wird die Spielfigur mit in jeder Szene individueller Position zur Szene hinzugefügt.
 
 \begin{lstlisting}[caption=Mathegangszene, label=lst:mahtegangszene, captionpos=m, language=Java]
 public class MathegangScene extends BaseScene{
