@@ -17,6 +17,7 @@ public class StorylineScene extends BaseScene {
             SceneStack.INSTANCE.pop();
             SceneStack.INSTANCE.push(new FoyerScene());
             SceneStack.INSTANCE.push(new EntranceScene());
+            SceneStack.INSTANCE.push(new ChoosingScene());
         }));
     }
 }
