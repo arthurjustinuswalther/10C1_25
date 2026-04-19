@@ -495,9 +495,9 @@ Die Klasse beinhaltet:
     \end{itemize}
 \end{sloppypar}
 
-\textbf{Beispielcode aus PhysikGameObject}
+\textbf{Beispielcode aus PhysikGameObject} \\
 Im folgenden Codeausschnitt werden die drei Level (0, 1, 2) von einander durch verschiedene Eigenschaften unterschieden.
-\begin{lstlisting}[caption=Switch Cases für die verschiedenen Level, label=lst:mgSwitch(level), captionpos=t, language=Java]
+\begin{lstlisting}[caption=Case Switch für die Level, label=lst:mgSwitch(level), captionpos=t, language=Java]
 // Level-spezifische Konfiguration
         switch (level) {
                         case 0:
@@ -530,7 +530,7 @@ Im folgenden Codeausschnitt werden die drei Level (0, 1, 2) von einander durch v
     }
 \end{lstlisting}
 
-Im folgenden Codeausschnitt wird die Bewegung des Balles, basierend auf den Basis- und Spielerkräften ausgeführt, sowie Gewinnbedingungen geprüft.
+Im folgenden Codeausschnitt wird die Bewegung des Balles, basierend auf den Basis- und Spielerkräften ausgeführt, sowie die Gewinnbedingungen geprüft.
 \begin{lstlisting}[caption=ballBewegen-Methode, label=lst:mgballbewegen, captionpos=t, language=Java]
 private void ballBewegen() {
     // Alle Basisbeschleunigungen auf Geschwindigkeit addieren
