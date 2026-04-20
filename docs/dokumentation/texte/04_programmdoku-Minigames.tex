@@ -416,9 +416,9 @@ Die Klasse beinhaltet:
 \textbf{Beispielcode aus Reagenzglas}
 \begin{lstlisting}[caption=istGeloest-Methode, label=lst:mgistgeloest, captionpos=t, language=Java]
 public boolean istGeloest() {
-    // Glas muss vollstaendig gefuellt sein
+    // Glas muss vollständig gefuellt sein
     if (bloecke.size() != MAX_KAPAZITAET) return false;
-    // Alle Bloecke muessen die gleiche Farbe haben
+    // Alle Blöcke muessen die gleiche Farbe haben
     String f = bloecke.get(0);
     for (String b : bloecke) if (!b.equals(f)) return false;
     return true;
@@ -439,7 +439,7 @@ Sie beinhaltet:
         \item \texttt{umschuetten(int von, int nach)}: Schüttet alle aufeinanderfolgenden Blöcke gleicher Farbe vom Quell- ins Zielglas um, sofern dies möglich ist.
         \item \texttt{istGewonnen()}: Gibt \texttt{true} zurück, wenn alle nicht-leeren Gläser gelöst sind.
         \item \texttt{update(BaseScene)}: Aktualisiert den Timer, ruft bei Ablauf \texttt{levelLost()} auf und erkennt Klicks auf Reagenzgläser mittels \texttt{isClicked()}.
-        \item \texttt{draw(Graphics2D)}: Zeichnet Titel, Hinweistext und Timer und delegiert das Zeichnen der Gläser an die jeweiligen \texttt{Reagenzglas}-Objekte.
+        \item \texttt{draw(Graphics2D)}: Zeichnet Titel, Hinweistext, Timer und delegiert das Zeichnen der Gläser an die jeweiligen \texttt{Reagenzglas}-Objekte.
     \end{itemize}
 \end{sloppypar}
 
@@ -454,7 +454,7 @@ private void umschuetten(int von, int nach) {
     String farbe = v.oberstenBlockAnschauen();
     // Abbruch, wenn Quellglas leer oder Ablegen nicht moeglich
     if (farbe == null || !n.kannAblegen(farbe)) return;
-    // Alle aufeinanderfolgenden Bloecke gleicher Farbe umschuetten
+    // Alle aufeinanderfolgenden Blöcke gleicher Farbe umschütten
     while (v.oberstenBlockAnschauen() != null
             && v.oberstenBlockAnschauen().equals(farbe)
             && n.kannAblegen(farbe))
@@ -489,7 +489,7 @@ Sie beinhaltet:
 
 \paragraph{PhysikGameObject}
 Eine Erweiterung von \texttt{BaseObject}, die das gesamte Physik-Minigame verwaltet.
-Das Spiel läuft in drei Phasen ab: \texttt{PHASE\_VORBEREITUNG}, in der der Spieler einen Kraftpfeil vom Ball wegzieht, \texttt{PHASE\_SIMULATION}, in der der Ball unter Einfluss der Beschleunigungen fliegt, und \texttt{PHASE\_ERGEBNIS}, die nach dem Treffem oder Verfehlen bzw der Kollison mit Boden oder Wand eintritt.
+Das Spiel läuft in drei Phasen ab: \texttt{PHASE\_VORBEREITUNG}, in der der/die Spieler*in einen Kraftpfeil vom Ball wegzieht, \texttt{PHASE\_SIMULATION}, in der der Ball unter Einfluss der Beschleunigungen fliegt, und \texttt{PHASE\_ERGEBNIS}, die nach dem Treffem oder Verfehlen bzw der Kollison mit Boden oder Wand eintritt.
 
 Die Klasse beinhaltet:
 \begin{sloppypar}
@@ -504,7 +504,7 @@ Die Klasse beinhaltet:
         \item \texttt{ballBewegen()}: Wendet alle Basisbeschleunigungen auf die Geschwindigkeit an, bewegt den Ball und prüft Kollisionen mit Rand, Wand und Ziel.
         \item \texttt{simulationStoppen(boolean treffer)}: Wechselt in \texttt{PHASE\_ERGEBNIS} und ruft \texttt{levelWon()} bzw. \texttt{levelLost()} auf.
         \item \texttt{update(BaseScene)}: Verarbeitet Maus-Drag zur Kraftpfeil-Eingabe, delegiert Button-Klicks an \texttt{simulateButton} und führt die Simulation schrittweise aus.
-        \item \texttt{draw(Graphics2D)}: Zeichnet Titel, Hinweistext, Ziel und die Kraftpfeile.
+        \item \texttt{draw(Graphics2D)}: Zeichnet Titel, Hinweistext bzw. Anleitung, Ziel und die Kraftpfeile.
     \end{itemize}
 \end{sloppypar}
 
@@ -554,7 +554,7 @@ private void ballBewegen() {
     // Geschwindigkeit auf Position addieren
     ballX += velX;
     ballY += velY;
-    // Fensterrand getroffen -> verloren
+    // Fensterrand/Wand getroffen -> verloren
     if (ballX <= 0 || ballX + BALL_GROESSE >= BREITE
             || ballY <= 0 || ballY + BALL_GROESSE >= HOEHE) {
         simulationStoppen(false);
@@ -606,7 +606,7 @@ Sie beinhaltet:
 
 \paragraph{BiologyLevelScene}
 Eine Erweiterung von \texttt{BaseScene}, die das gesamte Biologie-Minigame verwaltet.
-Der Spieler sieht vier zufällig ausgewählte Pflanzenbilder und muss diesen die richtigen Namen zuordnen, indem er Labels anklickt und auf die passenden Bilder platziert.
+De/die Spieler*in sieht vier zufällig ausgewählte Pflanzenbilder und muss diesen die richtigen Namen zuordnen, indem er/sie Labels anklickt und auf die passenden Bilder platziert.
 
 Die Klasse beinhaltet:
 \begin{sloppypar}
@@ -619,6 +619,7 @@ Die Klasse beinhaltet:
         \item \texttt{update()}: Verarbeitet Klick-Interaktionen: wählt ein Label aus, hebt die Auswahl auf oder platziert das ausgewählte Label auf einem Bildslot. Nach jeder Platzierung wird geprüft, ob alle Slots belegt sind, und bei Vollständigkeit \texttt{checkWin()} aufgerufen.
         \item \texttt{checkWin()}: Prüft für jeden der vier Bildslots, ob das dort platzierte Label mit dem Namen der zugehörigen Pflanze übereinstimmt.
         \item \texttt{allPlaced()}: Gibt \texttt{true} zurück, wenn alle vier Bildslots mit einem Label belegt sind.
+        \item \texttt{draw(Graphics2D g2)}: Zeichnet Titel und Hinweistext bzw. Anleitung.
     \end{itemize}
 \end{sloppypar}
 
@@ -629,43 +630,43 @@ Dieser Beispielcode zeigt der Verarbeitung der Pflanzenbilder für das Minigame.
 Jedes Pflanzenbild wird dabei proportional skaliert und mittig zugeschnitten, sodass es exakt in den vorgegebenen Slot passt, bevor es als \texttt{BaseObject} zur Szene hinzugefügt wird.
 
 \begin{lstlisting}[caption=Skalierung Pflanzenbilder, label=lst:mgBildskalierung, captionpos=t, language=Java]
-// Originalbild der gewaehlten Pflanze laden
+// Originalbild der gewählten Pflanze laden
 BufferedImage original = (BufferedImage) chosen.get(i).image;
 
-// Skalierungsfaktor berechnen: Bild soll den Slot vollstaendig ausfuellen
+// Skalierungsfaktor berechnen: Bild soll den Slot vollständig ausfuellen
 double scale = Math.max((double) slotW / original.getWidth(),
                         (double) slotH / original.getHeight());
 int scaledW = (int) (original.getWidth() * scale);
 int scaledH = (int) (original.getHeight() * scale);
 
-// Neues Bild in der skalierten Groesse erstellen
+// Neues Bild in der skalierten Größe erstellen
 BufferedImage scaled = new BufferedImage(scaledW, scaledH,
                                          BufferedImage.TYPE_INT_RGB);
 Graphics2D g2d = scaled.createGraphics();
 
-// Originalbild in die neue skalierte Groesse zeichnen
+// Originalbild in die neue skalierte Größe zeichnen
 g2d.drawImage(original, 0, 0, scaledW, scaledH, null);
 
 
 // Grafikkontext freigeben, um Ressourcen zu vermeiden
 g2d.dispose();
 
-// Bild mittig auf Slotgroesse zuschneiden (Center-Crop)
+// Bild mittig auf Slotgröße zuschneiden (Center-Crop)
 int cropX = Math.max(0, (scaledW - slotW) / 2);
 int cropY = Math.max(0, (scaledH - slotH) / 2);
 int cropW = Math.min(slotW, scaledW);
 int cropH = Math.min(slotH, scaledH);
 Image cropped = scaled.getSubimage(cropX, cropY, cropW, cropH);
 
-// Zugeschnittenes Bild als BaseObjekt hinzufuegen
+// Zugeschnittenes Bild als BaseObjekt hinzufügen
 BaseObject plantImage = new BaseObject(cropped,
                                        imageX[i] * PIXEL_SCALE,
                                        imageY[i] * PIXEL_SCALE);
 plantImage.width = cropW * PIXEL_SCALE;
 plantImage.height = cropH * PIXEL_SCALE;
 
-// Objekt im Slot-Array speichern (fuer spaetere Klick-Erkennung)
-// und der Szene hinzufuegen, damit es gezeichnet wird
+// Objekt im Slot-Array speichern (für spätere Klick-Erkennung)
+// und der Szene hinzufügen, damit es gezeichnet wird
 imagePlaceholders[i] = plantImage;
 objects.add(plantImage);
 \end{lstlisting}
@@ -677,19 +678,19 @@ Ein Label wird ausgewählt, auf einen Bildslot platziert – wobei ein bereits v
  public void update() {
         super.update();
 
-// Ist kein Label ausgewaehlt, auf Klick eines Labels pruefen
+// Ist kein Label ausgewählt, auf Klick eines Labels prüfen
 if (selectedLabel == null) {
     for (BaseObject obj : objects) {
         if (obj instanceof BiologyLabelObject label) {
             if (label.isClicked()) {
-                // Label als ausgewaehlt markieren und merken
+                // Label als ausgewählt markieren und merken
                 selectedLabel = label;
                 label.selected = true;
             }
         }
     }
 } else {
-    // Klick auf das bereits ausgewaehlte Label hebt Auswahl wieder auf
+    // Klick auf das bereits ausgewählte Label hebt Auswahl wieder auf
     if (selectedLabel.isClicked()) {
         selectedLabel.selected = false;
         selectedLabel = null;
@@ -718,13 +719,13 @@ if (selectedLabel == null) {
                 existing.y = (105 + (idx / 3) * 16) * PIXEL_SCALE;
             }
 
-            // Ausgewaehltes Label auf den angeklickten Bildslot platzieren
+            // Ausgewähltes Label auf den angeklickten Bildslot platzieren
             selectedLabel.x = imageX[i] * PIXEL_SCALE;
             selectedLabel.y = 71 * PIXEL_SCALE;
             selectedLabel.selected = false;
             selectedLabel = null;
 
-            // Wenn alle vier Slots belegt sind, Gewinnpruefung starten
+            // Wenn alle vier Slots belegt sind, Gewinnprüfung starten
             if (allPlaced()) {
                 if (checkWin()) {
                     levelWon();
@@ -738,7 +739,7 @@ if (selectedLabel == null) {
 \end{lstlisting}
 
 \paragraph{BiologyLabelObject}
-Eine Erweiterung von \texttt{BaseObject}, die ein anklickbares, beschriftetes Label darstellt, das der Spieler per Klick auswählen und auf einem Bildslot platzieren kann.
+Eine Erweiterung von \texttt{BaseObject}, die ein anklickbares, beschriftetes Label darstellt, das der/die Spieler*in per Klick auswählen und auf einem Bildslot platzieren kann.
 
 Die Klasse beinhaltet:
 \begin{sloppypar}
