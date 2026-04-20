@@ -1,6 +1,7 @@
 package czg.objects;
 
 import czg.util.Images;
+import czg.objects.Department;
 
 import java.awt.*;
 import java.util.List;
@@ -20,7 +21,7 @@ public enum ItemType {
     FELDSTECHER("Feldstecher", "/assets/items/feldstecher.png", 1),
     GLUEHBIRNE("Glühbirne", "/assets/items/glühbirne.png", 2),
     IKOSAEDER("Ikosaeder", "/assets/items/ikosaeder.png", 1),
-    KRAFTMESSER("Federkraftmesser", "/assets/items/kraftmesser.png", 0),
+    KRAFTMESSER("Feder\nkraftmesser", "/assets/items/kraftmesser.png", 0),
     LAUTSPRECHER("Lautsprecher", "/assets/items/lautsprecher.png", 0),
     LINEAL("Lineal", "/assets/items/lineal.png", 0),
     TEXT("FrauBreunig","/assets/items/wenn_sie_das_hier_wirklich.png", 1),
@@ -110,7 +111,7 @@ public enum ItemType {
                         return ItemType.SAEURE;
                     }
                 }
-            }  
+            }
         }
         return null;
         
@@ -118,127 +119,47 @@ public enum ItemType {
     
     public static List<ItemType> getItems(int level, Department fachschaft) { // Items mit jeweiligen Leveln an Lehrer mit jeweiligen Leveln  verteilen
         if (fachschaft == Department.COMPUTER_SCIENCE) {
-            if (level == 0) {
-                return List.of(     //die Items werden zurückgegeben
-                        ItemType.CD, //level 1
-                        ItemType.LAUTSPRECHER, //level 1
-                        ItemType.WLAN, //level 1 (eigentlich level 2)
-                        ItemType.CHROME//level 2
-                );
-            } else if (level == 1) {
-                return List.of(
-                        ItemType.CD, //level 1
-                        ItemType.LAUTSPRECHER, //level 1
-                        ItemType.WLAN, //level 2
-                        ItemType.CHROME //level 2
-                );
-            } else if (level == 2) {
-                return List.of(
-                        ItemType.LAUTSPRECHER, //level 1
-                        ItemType.CHROME, //level 2
-                        ItemType.WLAN, //level 2
-                        ItemType.BSOD // level 3
-                );
-
-            }
+            
+            return List.of(  //die Items werden zurückgegeben
+                    ItemType.CD, //level 1
+                    ItemType.LAUTSPRECHER, //level 1
+                    ItemType.WLAN, //level 1 (eigentlich level 2)
+                    ItemType.CHROME//level 2
+            ); 
         } else if (fachschaft == Department.PHYSICS) {
-            if (level == 0) {
-                return List.of(
-                        ItemType.NEWTONSAPFEL, //level 1
-                        ItemType.KRAFTMESSER, //level 1
-                        ItemType.FELDSTECHER, //level 1 (eigentlich level 2)
-                        ItemType.MAGNET//level 2
-                );
-            } else if (level == 1) {
-                return List.of(
-                        ItemType.NEWTONSAPFEL, //level 1
-                        ItemType.KRAFTMESSER, //level 1
-                        ItemType.FELDSTECHER, //level 2
-                        ItemType.MAGNET //level 2
-                );
-            } else if (level == 2) {
-                return List.of(
-                        ItemType.NEWTONSAPFEL, //level 1
-                        ItemType.FELDSTECHER, //level 2
-                        ItemType.MAGNET, //level 2
-                        ItemType.GLUEHBIRNE // level 3
-                );
-
-            }
+             
+            return List.of(
+                    ItemType.NEWTONSAPFEL, //level 1
+                    ItemType.KRAFTMESSER, //level 1
+                    ItemType.FELDSTECHER, //level 1 (eigentlich level 2)
+                    ItemType.MAGNET//level 2
+            );
         } else if (fachschaft == Department.MATHEMATICS) {
-            if (level == 0) {
-                return List.of(
-                        ItemType.LINEAL, //level 1
-                        ItemType.ZIRKEL, //level 1
-                        ItemType.IKOSAEDER, //level 1 (eigentlich level 2)
-                        ItemType.THALES//level 2
-                );
-            } else if (level == 1) {
-                return List.of(
-                        ItemType.LINEAL, //level 1
-                        ItemType.ZIRKEL, //level 1
-                        ItemType.IKOSAEDER, //level 2
-                        ItemType.THALES //level 2
-                );
-            } else if (level == 2) {
-                return List.of(
-                        ItemType.LINEAL, //level 1
-                        ItemType.IKOSAEDER, //level 2
-                        ItemType.THALES, //level 2
-                        ItemType.ZETTEL // level 3
-                );
-
-            }
+             
+            return List.of(
+                    ItemType.LINEAL, //level 1
+                    ItemType.ZIRKEL, //level 1
+                    ItemType.IKOSAEDER, //level 1 (eigentlich level 2)
+                    ItemType.THALES//level 2
+            );  
         } else if (fachschaft == Department.BIOLOGY) {
-            if (level == 0) {
-                return List.of(
-                        ItemType.VIRUS, //level 1
-                        ItemType.NERV, //level 1
-                        ItemType.SCHAEDEL, //level 1 (eigentlich level 2)
-                        ItemType.DNA//level 2
-                );
-            } else if (level == 1) {
-                return List.of(
-                        ItemType.VIRUS, //level 1
-                        ItemType.NERV, //level 1
-                        ItemType.SCHAEDEL, //level 2
-                        ItemType.DNA //level 2
-                );
-            } else if (level == 2) {
-                return List.of(
-                        ItemType.VIRUS, //level 1
-                        ItemType.SCHAEDEL, //level 2
-                        ItemType.DNA, //level 2
-                        ItemType.SEIZUREDFROG // level 3
-                );
 
-            }
+            return List.of(
+                    ItemType.VIRUS, //level 1
+                    ItemType.NERV, //level 1
+                    ItemType.SCHAEDEL, //level 1 (eigentlich level 2)
+                    ItemType.DNA//level 2
+            );
         } else if (fachschaft == Department.CHEMISTRY) {
-            if (level == 0) {
-                return List.of(
-                        ItemType.SPRITZFLASCHE, //level 1
-                        ItemType.ATOM, //level 1
-                        ItemType.SCHUTZBRILLE, //level 1 (eigentlich level 2)
-                        ItemType.WUNDERKERZE//level 2
-                );
-            } else if (level == 1) {
-                return List.of(
-                        ItemType.SPRITZFLASCHE, //level 1
-                        ItemType.ATOM, //level 1
-                        ItemType.SCHUTZBRILLE, //level 2
-                        ItemType.WUNDERKERZE //level 2
-                );
-            } else if (level == 2) {
-                return List.of(
-                        ItemType.SPRITZFLASCHE, //level 1
-                        ItemType.SCHUTZBRILLE, //level 2
-                        ItemType.WUNDERKERZE, //level 2
-                        ItemType.BRENNER // level 3
-                );
-
-            }
+            
+            return List.of(
+                    ItemType.SPRITZFLASCHE, //level 1
+                    ItemType.ATOM, //level 1
+                    ItemType.SCHUTZBRILLE, //level 1 (eigentlich level 2)
+                    ItemType.WUNDERKERZE//level 2
+            );
         }
-
+        
         throw new IllegalArgumentException("Konnte nicht die Items für Fachschaft "+fachschaft+", Level "+level+" ermitteln!");
     }
 }
