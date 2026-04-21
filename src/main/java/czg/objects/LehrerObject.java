@@ -1,6 +1,8 @@
 package czg.objects;
 
+import czg.MainWindow;
 import czg.scenes.BaseScene;
+import czg.scenes.KampfScene;
 import czg.util.Images;
 
 import java.awt.*;
@@ -87,5 +89,21 @@ public class LehrerObject extends BaseObject{
 
     @Override
     public void update(BaseScene scene) {
+        super.update(scene);
+
+        if(!KampfScene.lehrerTurn) {
+            return;
+        }
+        else {
+            KampfScene.lehrerSchaden = angriff();
+            KampfScene.timer = 10 * MainWindow.FPS;
+            KampfScene.lehrerTurn = false;
+        }
+
+        if(KampfScene.timer > 0) {
+            KampfScene.timer -= 1;
+        }
+
+
     }
 }

@@ -1,6 +1,5 @@
 package czg.scenes;
 import czg.objects.BackdropObject;
-import czg.objects.Department;
 import czg.objects.LehrerObject;
 import czg.objects.PlayerObject;
 import czg.util.Images;
@@ -9,7 +8,10 @@ import czg.util.Images;
  * @author Sophie
  */
 public class KampfScene extends BaseScene{
-
+    public static boolean lehrerTurn = false;
+    public static boolean imKampf = false;
+    public static int timer = 0;
+    public static int lehrerSchaden = 0;
 
     public KampfScene(String FACHSCHAFT){
         super();
@@ -21,6 +23,8 @@ public class KampfScene extends BaseScene{
 
         int LehrerLeben = 10;
         int PlayerLeben = 10;
+
+        imKampf = true;
 
         LehrerObject Lehrer = new LehrerObject(600, 300, FACHSCHAFT, LehrerLeben, 2);
         this.objects.add(Lehrer);
@@ -46,8 +50,6 @@ public class KampfScene extends BaseScene{
     public void update() {
         super.update();
 
-        if(PlayerObject.INSTANCE.isClicked())
-            SceneStack.INSTANCE.push(new InventarScene());
     }
 
 }

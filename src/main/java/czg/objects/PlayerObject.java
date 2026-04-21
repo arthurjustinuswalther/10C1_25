@@ -2,6 +2,7 @@ package czg.objects;
 
 import czg.scenes.BaseScene;
 import czg.scenes.InventarScene;
+import czg.scenes.KampfScene;
 import czg.scenes.SceneStack;
 import czg.util.Capsule;
 import czg.util.Draw;
@@ -170,6 +171,16 @@ public class PlayerObject extends BaseObject{
         // Inventar öffnen, wenn die Figur angeklickt wird
         if(allowInventory && isClicked())
             SceneStack.INSTANCE.push(new InventarScene());
+
+        if(KampfScene.imKampf) {
+            if(KampfScene.lehrerTurn) {
+                if(KampfScene.timer == 0) {
+                    return;
+                }
+
+            }
+
+        }
     }
     
 }
