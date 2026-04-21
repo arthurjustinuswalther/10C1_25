@@ -1,8 +1,7 @@
 package czg.scenes;
 
-import czg.objects.BackdropObject;
-import czg.objects.PfeilObject;
-import czg.objects.PlayerObject;
+import czg.objects.*;
+import czg.scenes.minigame.Minigames;
 import czg.util.Images;
 
 public class FoyerScene extends BaseScene{
@@ -14,7 +13,12 @@ public class FoyerScene extends BaseScene{
         objects.add(new PfeilObject(this, GangHausmeisterScene::new, PfeilObject.RECHTS));
         objects.add(new PfeilObject(this, PhysikgangScene::new, PfeilObject.LINKS));
         objects.add(new PfeilObject(this, ErstesOGScene::new, PfeilObject.OBEN));
-        
+
+        // Für Kampf debugging
+        objects.add(new ButtonObject(Images.get("/assets/minigames/general/button_menu.png"),
+                () -> SceneStack.INSTANCE.push(new KampfScene("PHYSICS"))));
+
+
         //Einfügen der Spieler-Figur
         this.objects.add(PlayerObject.INSTANCE);
         PlayerObject.INSTANCE.x = 330;

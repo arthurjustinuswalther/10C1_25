@@ -98,7 +98,7 @@ public class PlayerObject extends BaseObject{
     /*
     Bitti bitti nicht noch mal löschen...
     */
-    public static int angriff() {
+    public int angriff() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welches Item?");
         String ausgewaehlt = scanner.nextLine();
@@ -106,7 +106,7 @@ public class PlayerObject extends BaseObject{
         return level;
     }
     
-    public static int verteidigung(int schaden) {
+    public int verteidigung(int schaden) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Du kriegst " + schaden + " Schaden");
         System.out.println("Welches Item?");
