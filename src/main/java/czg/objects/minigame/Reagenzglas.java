@@ -19,9 +19,9 @@ public class Reagenzglas extends BaseObject {
     private static final int BLOCK_H_ORIG = 5;
     private static final int BLOCK_W = BLOCK_W_ORIG * SCALE;
     private static final int BLOCK_H = BLOCK_H_ORIG * SCALE;
-    public static final int GLAS_BREITE = 32 * SCALE;
+    public static final int GLAS_BREITE = 20 * SCALE;
     public static final int GLAS_HOEHE = 32 * SCALE;
-    private static final int BLOCK_X_OFFSET = 11 * SCALE;
+    private static final int BLOCK_X_OFFSET = 5 * SCALE;
     private static final int BLOCK_BODEN_Y = 31 * SCALE;
     public static final int MAX_KAPAZITAET = 4;
 

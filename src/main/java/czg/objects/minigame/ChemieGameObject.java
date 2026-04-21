@@ -35,7 +35,7 @@ public class ChemieGameObject extends BaseObject {
         levelErstellen();
     }
 
-    private static final int ABSTAND = -40;
+    private static final int ABSTAND = 0;
     private static final int SPIEL_X = 140;
     private static final int SPIEL_Y = 200;
     private static final int SPIEL_BREITE = 560;
