@@ -42,7 +42,7 @@ public class InventarScene extends BaseScene {
 
     private int currentRow = 0;
 
-    private List<List<ItemObject>> rows = new ArrayList<>();
+    private final List<List<ItemObject>> rows = new ArrayList<>();
 
 
     public InventarScene() {
@@ -85,17 +85,16 @@ public class InventarScene extends BaseScene {
     }
 
     private void generateRows() {
-        final int x0 = iLeft + (int)(iPadding * 3);
+        final int x0 = iLeft + (iPadding * 3);
         final int pad = iPadding * 4;
         int x = x0;
 
         List<ItemObject> currentRow = null;
 
-        List<ItemType> items = List.copyOf(PlayerObject.INSTANCE.inventar.sequencedKeySet());
-        for (ItemType type : items) {
+        for (ItemType type : PlayerObject.INSTANCE.inventar.sequencedKeySet()) {
             currentRow = currentRow == null ? new ArrayList<>() : currentRow;
 
-            ItemObject object = new ItemObject(type, 1, x, 0);
+            ItemObject object = new ItemObject(type, PlayerObject.INSTANCE.inventar.get(type), x, 0);
             object.y = type == ItemType.PAPIER ? iTop : iTop + (iHeight / 2) - (object.height / 2) - PIXEL_SCALE * 3;
             object.visible = false;
             objects.add(object);
