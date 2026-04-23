@@ -54,6 +54,9 @@ public class LehrerObject extends BaseObject{
         if(KampfScene.uebrigeLehrer.contains(department)) {
             ButtonObject button = new ButtonObject(LehrerObject.getImage(department),
                     () -> {
+                        if(PlayerObject.INSTANCE.inventar.isEmpty())
+                            return;
+
                         SceneStack.INSTANCE.push(new KampfScene(department));
                         PlayerObject.INSTANCE.allowInventory = false;
                     });
@@ -105,6 +108,7 @@ public class LehrerObject extends BaseObject{
         KampfScene.instance.objects.remove(KampfScene.currentItem);
         if(type != null) {
             KampfScene.currentItem = new ItemObject(type, 0, x - width, y + height / 2);
+            KampfScene.currentItem.y -= KampfScene.currentItem.height / 2;
             KampfScene.instance.objects.add(KampfScene.currentItem);
         } else {
             KampfScene.currentItem = null;

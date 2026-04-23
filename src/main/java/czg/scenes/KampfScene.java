@@ -68,6 +68,16 @@ public class KampfScene extends BaseScene{
         PlayerObject.INSTANCE.x = 120;
         PlayerObject.INSTANCE.y = 295;
 
+        objects.add(new PfeilObject(null, null, PfeilObject.UNTEN) {
+            @Override
+            public void update(BaseScene scene) {
+               if(isClicked(false)) {
+                   InventarScene.close();
+                   SceneStack.INSTANCE.push(new KampfEndScene(false, false));
+               }
+            }
+        });
+
         Sounds.HALLWAY_MUSIC.setPlaying(false);
 
         BaseSound intro = sounds.get().addSound(new StreamSound("/assets/sound/fight_intro.ogg", false, EndOfFileBehaviour.STOP));
@@ -92,11 +102,11 @@ public class KampfScene extends BaseScene{
             timer -= 1;
         }
 
-        if(PlayerLeben <= 0) {
-            SceneStack.INSTANCE.push(new KampfEndScene(false));
+        if(PlayerLeben <= 0 || (PlayerObject.INSTANCE.inventar.isEmpty() && turn == Turn.PLAYER_ATTACK)) {
+            SceneStack.INSTANCE.push(new KampfEndScene(false, !PlayerObject.INSTANCE.inventar.isEmpty()));
         } else if(LehrerLeben <= 0) {
             uebrigeLehrer.remove(FACHSCHAFT);
-            SceneStack.INSTANCE.push(new KampfEndScene(true));
+            SceneStack.INSTANCE.push(new KampfEndScene(true, false));
         }
     }
 

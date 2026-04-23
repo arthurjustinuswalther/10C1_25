@@ -13,7 +13,7 @@ import static czg.MainWindow.*;
 
 public class KampfEndScene extends BaseScene {
 
-    public KampfEndScene(boolean playerWon) {
+    public KampfEndScene(boolean playerWon, boolean allowRetry) {
         InventarScene.close();
 
         objects.add(new BackdropObject(Images.get("/assets/minigames/general/background_overlay.png")));
@@ -29,7 +29,7 @@ public class KampfEndScene extends BaseScene {
         exitButton.y = HEIGHT / 2;
         objects.add(exitButton);
 
-        if(playerWon) {
+        if(! allowRetry) {
             exitButton.x = WIDTH / 2 - exitButton.width / 2;
         } else {
             BaseObject retryButton = new ButtonObject(Images.get("/assets/minigames/general/button_retry.png"),
